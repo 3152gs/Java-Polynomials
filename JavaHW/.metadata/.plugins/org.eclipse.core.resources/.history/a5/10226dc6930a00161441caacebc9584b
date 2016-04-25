@@ -1,0 +1,23 @@
+package MyPolyPackage;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Creating term objects 2x^3, x^7, -4x, 2...");
+        Term testObject1 = new Term(2,3);
+        Term testObject2 = new Term(1,7);
+        Term testObject3 = new Term(-4,1);
+        Term testObject4 = new Term(2,0);
+        
+        System.out.println("Term objects created in string format:");    
+        System.out.println(testObject1.toString());
+        System.out.println(testObject2.toString());
+        System.out.println(testObject3.toString());
+        System.out.println(testObject4.toString());
+        System.out.println("");
+	
+	
+	}
+}
+        

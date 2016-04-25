@@ -1,0 +1,43 @@
+package MyPolyPackage;
+import java.util.*;
+
+public class Polynomial {
+	
+	
+	private ArrayList<Term>TermArray;
+	Term test;
+	
+	//Creating a list 
+	
+	public Polynomial(){
+		
+		TermArray= new ArrayList<Term>();
+		
+	}
+	
+	/* Implementing the insert method
+	 * Takes exponent and coefficient as integer inputs
+	 */
+	public void insert(int coef, int exp){
+		Term newTerm = new Term(coef, exp);
+		TermArray.add(newTerm);
+		
+		
+			for(int i = 0; i < TermArray.size() - 1; i++){
+	    		
+				for(int j = 0; j < TermArray.size() - i - 1; j++){
+	    	    	
+	    			if (TermArray.get(j).getExponent() < TermArray.get(j+1).getExponent()){
+	    	    		
+	    	    		Term temp = TermArray.get(j);
+	    	    		TermArray.set(j, TermArray.get(j+1));
+	    	    		TermArray.set(j+1, temp);
+	    	    		
+	    	    	}
+	    	    }
+	}
+	}
+	
+}
+
+	

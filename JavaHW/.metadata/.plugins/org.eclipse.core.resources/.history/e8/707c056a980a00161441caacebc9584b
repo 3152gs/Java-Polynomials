@@ -1,0 +1,86 @@
+package MyPolyPackage;
+import java.util.*;
+
+public class Polynomial {
+	
+	
+	private ArrayList<Term>TermArray;
+	Term test;
+	
+	//Creating a list 
+	
+	public Polynomial(){
+		
+		TermArray= new ArrayList<Term>();
+		
+	}
+	
+	/* Implementing the insert() method
+	 * Takes exponent and coefficient as integer inputs
+	 * Sorts the terms by exponent
+	 */
+	public void insert(int coef, int exp)
+	{
+		Term newTerm = new Term(coef, exp);
+		TermArray.add(newTerm);
+		
+		
+			for(int i = 0; i < TermArray.size() - 1; i++)
+			{
+	    		for(int j = 0; j < TermArray.size() - i - 1; j++)
+				{
+	    	    		if (TermArray.get(j).getExponent() < TermArray.get(j+1).getExponent())
+	    	    		{
+	    	    			Term temp = TermArray.get(j);
+		    	    		TermArray.set(j, TermArray.get(j+1));
+		    	    		TermArray.set(j+1, temp);	    	    		
+	    	    	}
+	    	    }
+			}
+			System.out.println("Succesfully inserted!!");
+	}
+	
+/*Implementing the delete() method
+ * Exponent and coefficient are passed as arguments
+ * The term with that particular exponent and coefficient is deleted
+ */
+	public void delete(int coef, int exp)
+	{
+		for(Term iter : TermArray){
+			if((iter.getCoefficient()==coef)&&(iter.getExponent()==exp)){
+				TermArray.remove(iter);
+				System.out.println("The term with Coefficient: " + coef + " Exponent: "+ exp +" has been deleted");
+				return;
+			}
+			
+		}
+		System.out.println("The desired term with Coefficient: "+ coef + " Exponent: "+ exp + " is not found");
+	}
+	
+	/*Implementing the product() method
+	 * This takes no parameters
+	 * It concatenates all the individual terms and returns the final expression
+	 */
+	
+	public String product(){
+		String expression = "P(X)= " ;
+		for(int i = 0; i < TermArray.size(); i++){
+				
+			expression += "+" + TermArray.get(i).toString() + " ";
+		}
+    	return expression;
+	}
+
+
+	public String Reverse(){
+		String expression = "P(X)= " ;
+		for(int i = TermArray.size()-1; i>=0 ; i++){
+				
+			expression += "+" + TermArray.get(i).toString() + " ";
+		}
+    	return expression;
+	}
+	
+}
+
+	

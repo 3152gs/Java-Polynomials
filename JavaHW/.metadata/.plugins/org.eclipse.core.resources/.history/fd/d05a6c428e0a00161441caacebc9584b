@@ -1,0 +1,16 @@
+package MyPolyPackage;
+import Terms.Terms;
+import java.util.*;
+
+public class Polynomial {
+
+	private ArrayList<Terms> array;
+	
+	public Polynomial(){
+		
+		array= new ArrayList<Terms>();
+		
+	}
+	
+	
+}

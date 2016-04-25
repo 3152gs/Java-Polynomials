@@ -1,0 +1,66 @@
+package MyPolyPackage;
+import java.io.*
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Polynomial Polynomial1 = new Polynomial();
+		String line = null;
+		
+		System.out.println("Creating term objects 2x^3, x^7, -4x, 2...");
+        Term testObject1 = new Term(2,3);
+        Term testObject2 = new Term(1,7);
+        Term testObject3 = new Term(-4,1);
+        Term testObject4 = new Term(2,0);
+        
+        System.out.println("Term objects created in string format:");    
+        System.out.println(testObject1.toString());
+        System.out.println(testObject2.toString());
+        System.out.println(testObject3.toString());
+        System.out.println(testObject4.toString());
+        System.out.println("");
+	
+        File inputFile = new File ("/Polynomials/src/Polynomial_Inputs.txt");
+        try{
+        	FileReader readMyFile= new FileReader(inputFile);
+        	BufferedReader bufferedReader = new BufferedReader(readMyFile);
+        	
+        	while((line=bufferedReader.readLine())!=null){
+        	String[] separator = line.split(";");
+        	int coefficient , exponent;
+        	
+        	for(int i=1;i<separator.length;i++){
+				if(i%2!=0){
+					coefficient=Integer.parseInt(separator[i]);
+				}
+			      else{
+			              exponent=Integer.parseInt(separator[i]);
+			              Polynomial1.insert(coefficient,exponent);
+					}
+				
+				}
+        	Polynomial1.insert(coefficient,exponent);
+        	
+        	System.out.println("After insertion: ");
+        	System.out.println(Polynomial1.product());
+        	
+        	Polynomial1.delete(5,3);
+        	
+        	System.out.println("After deleting: ");
+        	System.out.println(Polynomial1.product());
+        	
+        	p
+        	}
+        	
+        	
+			
+			
+			bufferedReader.close();
+			
+			catch(FileNotFoundException ex){
+				System.out.println("Cannot open the file");
+        }
+        
+	}
+}
+        

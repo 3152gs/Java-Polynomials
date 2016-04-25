@@ -1,0 +1,10 @@
+package MyPolyPackage;
+
+public class Polynomial {
+
+	
+	public Polynomial(){
+		
+	}
+	
+}
